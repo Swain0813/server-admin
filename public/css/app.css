@@ -1,0 +1,49 @@
+.breadcrumbs {
+	margin-bottom: auto;
+}
+
+.clearfix {
+	overflow: auto;
+	zoom: 1;
+}
+
+.form-group {
+ 	display: table;
+ 	width: 100%;
+}
+
+/* 璁剧疆jqgrid鍗曞厓鏍奸珮搴﹀浐瀹� */
+.ui-jqgrid .ui-jqgrid-htable th span.ui-jqgrid-resize {
+	height: 35px !important;
+}
+
+.ui-jqgrid .ui-jqgrid-htable th div {
+	padding-top: 8px !important;
+}
+
+.ui-jqgrid tr.ui-row-ltr td,.ui-jqgrid tr.ui-row-rtl td {
+	height: 40px;
+	line-height:40px;
+}
+
+.ui-jqgrid .ui-jqgrid-pager {
+	height: 40px;
+	padding-top: 2px !important;
+}
+
+.ui-jqgrid .ui-pager-control {
+	height: 35px;
+}
+
+.ui-jqgrid th > div > span{
+	position:relative;
+	left:15px;
+}
+
+.ui-jqgrid .ui-jqgrid-view, .ui-jqgrid .ui-paging-info, .ui-jqgrid .ui-pg-table, .ui-jqgrid .ui-pg-selbox{
+	height:auto !important;
+}
+
+.shadow{position:absolute;width:100%;height:100%;top:0px;left:0px;background:url(../images/bg_shadow.png) repeat;}
+
+.case_bg1,.case_code{width:400px; height:500px; position:absolute;left:28%; top:2px;margin:0px 1px 1px -112px; background:url(../images/bg15.png); display:none}

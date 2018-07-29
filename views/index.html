@@ -1,0 +1,324 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>多屏互动管理平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <link href="./ace/assets/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./ace/assets/css/font-awesome.css"/>
+    <link rel="stylesheet" href="./ace/assets/css/ace.css"/>
+    <link rel="stylesheet" href="./ace/assets/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="./ace/assets/css/ace-ext.css"/>
+    <link rel="stylesheet" href="./ace/assets/css/ace-rtl.css"/>
+    <link rel="stylesheet" href="./ace/assets/css/chosen.css" />
+    <link rel="stylesheet" href="./ace/assets/css/colorbox.css"/>
+    <link rel="stylesheet" href="./ace/plugins/css/lobibox.css" />
+    <link rel="stylesheet" href="./ace/plugins/css/zyFile/zyUpload.css" />
+
+    <link rel="stylesheet" href="./ace/assets/css/datepicker.css" /> <!-- 日历插件 -->
+    <!-- <link rel="stylesheet" href="./ace/plugins/css/ztree/demo.css"/> -->
+	<link rel="stylesheet" href="./ace/plugins/css/ztree/zTreeStyle.css"/>
+	<link rel="stylesheet" href="./css/app.css"/>
+    <link rel="stylesheet" href="./css/css.css">
+
+    <script type="text/javascript" src="./ace/assets/js/jquery.js"></script>
+</head>
+
+<body class="no-skin">
+	<!--导航开始-->
+	<button style="display:none;" class="btn btn-md" id="alertButton"></button><!-- 提示信息要用到 -->
+	<div class="navbar" id="navbar">
+	    <script type="text/javascript">
+	        try {
+	            ace.settings.check('navbar', 'fixed')
+	        } catch (e) {
+	        }
+	    </script>
+
+	    <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<!-- #section:basics/sidebar.mobile.toggle -->
+				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+					<span class="sr-only">Toggle sidebar</span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+				</button>
+
+				<!-- /section:basics/sidebar.mobile.toggle -->
+				<div class="navbar-header pull-left  hidden-xs hidden-sm">
+					<!-- #section:basics/navbar.layout.brand -->
+					<a href="#" class="navbar-brand no-padding">
+						<small class="clearfix">
+							<i class="navbar-logo pull-left"></i>
+							<span class="navbar-title pull-left">
+							多屏互动管理平台
+							</span>
+						</small>
+					</a>
+					<!-- /section:basics/navbar.layout.brand -->
+				</div>
+
+				<!-- #section:basics/navbar.dropdown -->
+				<div class="navbar-buttons navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="grey" >
+							<a id="topMsgCount" data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
+								<span class="badge badge-success">0</span>
+							</a>
+
+							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close list-unstyled">
+								<li id="topMsgHeader" class="dropdown-header">
+									<i class="ace-icon fa fa-envelope-o"></i>
+									<span id="titleMsgCount"></span><span>条新消息</span>
+								</li>
+								<li class="dropdown-content">
+									<ul id="topMsgItems" class="dropdown-menu dropdown-navbar">
+									</ul>
+								</li>
+
+								<li class="dropdown-footer">
+									<a href="#')">
+										查看所有消息
+										<i class="ace-icon fa fa-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<!-- #section:basics/navbar.user_menu -->
+						<li class="grey">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="./images/avatar2.png" />
+								<span class="user-info" style="max-width:120px;">
+									<small id="welcome-user">欢迎您</small>
+								</span>
+
+								<i class="ace-icon fa fa-chevron-down"></i>
+							</a>
+
+							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-grey dropdown-caret dropdown-close">
+
+								<li>
+									<a href="#" target="_blank">
+										<i class="ace-icon fa fa-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li>
+									<a href="#" target="_blank">
+										<i class="ace-icon fa fa-key"></i>
+										修改密码
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="/logout">
+										<i class="ace-icon fa fa-power-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<!-- /section:basics/navbar.user_menu -->
+					</ul>
+				</div>
+
+				<!-- /section:basics/navbar.dropdown -->
+			</div><!-- /.navbar-container -->
+
+		</div>
+	</div>
+	<!--导航结束-->
+	<!--主体开始-->
+	<div class="main-container" id="main-container">
+	    <script type="text/javascript">
+	        try {
+	            ace.settings.check('main-container', 'fixed')
+	        } catch (e) {
+	        }
+	    </script>
+
+	    <div class="main-container-inner">
+	       	<!--侧边栏slider开始-->
+	       	<div id="sidebar" class="sidebar responsive sidebar-fixed sidebar-scroll">
+				<script type="text/javascript">
+			        try {
+			            ace.settings.check('sidebar', 'fixed')
+			        } catch (e) {
+			        }
+			    </script>
+				<!-- #section:basics/sidebar.layout.minimize  -->
+				<div class="sidebar-toggle" id="sidebar-collapse">
+					<i class="ace-icon fa fa-angle-double-left"
+						data-icon1="ace-icon fa fa-angle-double-left"
+						data-icon2="ace-icon fa fa-angle-double-right"></i>
+				</div>
+				<!-- /section:basics/sidebar.layout.minimize -->
+				<ul class="nav nav-list" id="left_menu">
+
+					<li>
+						<a id="hdptConfig" href="javascript:void(0);" class="dropdown-toggle">
+							<i class="menu-icon fa fa-users"></i>
+							<span class="menu-text"> 互动管理</span> <b class="arrow fa fa-angle-down"></b>
+						</a> <b class="arrow"></b>
+						<ul class="submenu">
+							<li>
+								<a id="onlineInfo" href="javascript:void(0);" title="/status">
+								<i class="menu-icon fa fa-caret-right"></i>
+								在线情况
+								</a> <b class="arrow"></b>
+							</li>
+
+							<li>
+								<a href="javascript:void(0);" title="app/special_user/special_user.html">
+								<i class="menu-icon fa fa-caret-right"></i>
+								绑定情况
+								</a> <b class="arrow"></b>
+							</li>
+						</ul>
+					</li>
+
+				</ul>
+
+				<script type="text/javascript">
+			        try {
+			            ace.settings.check('sidebar', 'collapsed')
+			        } catch (e) {
+			        }
+			    </script>
+			</div>
+	       	<!--侧边栏slider结束-->
+
+	        <!--内容部分开始-->
+	        <div class="main-content">
+	            <div class="page-content" id="main_page">
+
+	            </div>
+	        </div>
+			<!--内容部分结束-->
+	    </div>
+	</div>
+
+
+	<script src="./ace/assets/js/chosen.jquery.js"></script>
+    <script src="./ace/assets/js/jqGrid/jquery.jqGrid.src.js"></script>
+	<script src="./ace/assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
+	<script src="./ace/assets/js/jquery.colorbox.js"></script>
+    <script src="./ace/plugins/js/lobibox.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='./ace/assets/js/jquery.js'>" + "<" + "/script>");
+    </script>
+
+	<script type="text/javascript">
+	    if ("ontouchend" in document) document.write("<script src='./ace/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+	</script>
+	<script src="./ace/assets/js/bootstrap.js"></script>
+	<script src="./ace/assets/js/typeahead.jquery.js"></script>
+
+	<script src="./ace/assets/js/ace-elements.js"></script>
+	<script src="./ace/assets/js/ace.js"></script>
+    <script type="text/javascript" src="./ace/assets/js/bootbox.js"></script>
+    <script type="text/javascript" src="./js/msgTips.js"></script>
+	<!-- inline scripts related to this page -->
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+
+			$('#left_menu a').each(function(n, v) {
+				var url = $(v).attr("title");
+				if (url) {
+					$(v).unbind("click").click(function(e) {
+						openPage($(this).attr("title"));
+
+						$('#left_menu .active').each(function(nn, vv) {
+							$(vv).removeClass("active");
+
+						});
+						$(this).parents("li").each(function(nn, vv) {
+							$(vv).addClass("active");
+						});
+					});
+				}
+			});
+
+			 /*系统公告删除*/
+		    $(".frb_close img").on("click",function(){
+		        $(".frb").remove()
+		    })
+
+		    $('#hdptConfig').trigger('click');
+		    $('#onlineInfo').trigger('click');
+		});
+
+		/* 展开侧边导航栏后页面宽度改变隐藏 */
+		window.onresize = function(){
+			if($(document).width() < 991){
+				$(".sidebar.in").removeClass("in")
+			};
+		}
+
+		/* 展开侧边导航栏后页面宽度改变隐藏 */
+
+		function openPage(url) {
+			var p = $("#main_page");
+			if (p.length > 0) {
+				$.ajaxSetup ({
+					cache: false //关闭AJAX相应的缓存
+				});
+				p.load(url, function(response, status, xhr) {
+					if (status != "success") {
+						console.log(response);
+					}
+				});
+			}
+		}
+
+
+		//菜单缩进按钮，重写点击方法，加上表格自适应
+		$("#sidebar-collapse").unbind("click").click(function(){
+			if($("#sidebar").hasClass("menu-min")){
+				$("#sidebar").removeClass("menu-min");
+				$(this).find("i").removeClass("fa-angle-double-right").addClass("fa-angle-double-left");
+			}else{
+				$("#sidebar").addClass("menu-min");
+				$(this).find("i").removeClass("fa-angle-double-left").addClass("fa-angle-double-right");
+			}
+			setTimeout(function(){
+				$(window).triggerHandler('resize.jqGrid');
+			},500);
+		});
+
+		//显示提示信息方法
+        function alertmsg(type, msg) {
+            $("#alertButton").manhua_msgTips({
+                Event: "click",	//响应的事件
+                timeOut: 4000,		//提示层显示的时间
+                msg: msg,			//显示的消息
+                speed: 800,		//滑动速度
+                type: type			//提示类型（1、success 2、error 3、warning）
+
+            });
+            $("#alertButton").click();
+        }
+
+	</script>
+	</body>
+</html>

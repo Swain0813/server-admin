@@ -1,0 +1,129 @@
+<style type="text/css">
+    .div {
+        height: 120px;
+        border: 1px solid #e1e1e1;
+    }
+
+    .h4 {
+        font-size: 14px;
+        margin-top: 15px;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .h1 {
+        font-size: 32px;
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+<div class="panel-group accordion no-margin-bottom" id="accordion">
+
+    <div class="panel panel-default">
+        <div class="panel-heading no-padding">
+            <div id="actions" class=" clearfix">
+                <div class="col-sm-12">
+                    <div class="widget-box ui-sortable-handle">
+                        <div class="widget-header" style="background-color:#d2d2d2">
+                            <h5 class="widget-title bigger lighter" data-rel="popover">
+                                <i class="ace-icon fa  fa-key"></i> 总体概况
+                            </h5>
+                        </div>
+                        <div class="widget-body">
+                            <div class="col-sm-3 div">
+                                <h4 class="h4">主屏在线数量</h4>
+                                <h1 id="fact1" class="h1" style="font-size: 32px;">0</h1>
+                            </div>
+                            <div class="col-sm-3 div">
+                                <h4 class="h4">主屏离线数量</h4>
+                                <h1 id="fact2" class="h1" style="font-size: 32px;">0</h1>
+                            </div>
+                            <div class="col-sm-3 div">
+                                <h4 class="h4">从屏在线数量</h4>
+                                <h1 id="fact3" class="h1" style="font-size: 32px;">0</h1>
+                            </div>
+                            <div class="col-sm-3 div">
+                                <h4 class="h4">从屏离线数量</h4>
+                                <h1 id="fact4" class="h1" style="font-size: 32px;">0</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12" style="margin-top:10px">
+                    <div class="widget-box ui-sortable-handle">
+                        <div class="widget-header" style="background-color:#d2d2d2">
+                            <h5 class="widget-title bigger lighter" data-rel="popover">
+                                <i class="ace-icon fa  fa-search"></i> 设备信息查询
+                            </h5>
+                        </div>
+                        <div class="widget-body div">
+                            <div class="clearfix">
+                                <div class="col-md-4 text-right"  style="padding-top:30px">
+                                    <label class="col-sm-3 control-label" for="mscId_search">设备id</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="mscId_search" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center"  style="padding-top:30px">
+                                    <button type="button" class="btn  btn-md" onclick="queryMscInfo()">
+                                        <i class="ace-icon fa fa-search orange"></i>查询信息
+                                    </button>
+                                    <button type="button" class="btn  btn-md" onclick="changeStatus()">
+                                        <i class="ace-icon fa fa-key orange"></i>更改状态
+                                    </button>
+                                </div>
+
+                                <div class="col-md-4 text-left" style="padding-top:20px">
+                                    <label class="col-sm-3 control-label" for="address_result">设备所在地址：</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="address_result" class="form-control" readOnly style="text-align:center"/>
+                                    </div>
+                                    <label class="col-sm-3 control-label" for="status_result" style="padding-top:5px">设备状态：</label>
+                                    <div class="col-sm-9" style="padding-top:5px">
+                                        <select id="status_result" class="select form-control"
+                                            style="font-size: 12px; height: 35px;text-align:center" id="status" disabled>
+                                            <option value="">-</option>
+                                            <option value="1">主屏离线</option>
+                                            <option value="2">从屏离线</option>
+                                            <option value="3">主屏在线</option>
+                                            <option value="4">从屏在线</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12" style="margin-top:10px">
+                    <div class="widget-box ui-sortable-handle">
+                        <div class="widget-header" style="background-color:#d2d2d2;">
+                            <h5 class="widget-title bigger lighter">
+                                <i class="ace-icon fa fa-table"></i>设备列表
+                            </h5>
+                        </div>
+                        <div class="widget-body" id="widget-table">
+                            <div class="widget-main no-padding">
+                                <table id="grid-table"></table>
+                                <div id="grid-pager"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/status.js"></script>
+<script>
+    jQuery(function ($) {
+        App.status.init();
+    });
+</script>
+
+
